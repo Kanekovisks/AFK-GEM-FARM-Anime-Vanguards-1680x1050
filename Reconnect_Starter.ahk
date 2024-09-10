@@ -2,7 +2,7 @@
 Menu, Tray, Icon, %A_ScriptDir%\Images\connect.ico
 
 variance = 20
-1
+
 Numpad1::Reload
 Numpad2::ExitApp
 
