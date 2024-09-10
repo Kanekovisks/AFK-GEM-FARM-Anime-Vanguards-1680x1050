@@ -1,2 +1,2 @@
 # AFK-GEM-FARM-Anime-Vanguards-1680x1050
-An automatic gem farmer for an roblox game
+An automatic gem farmer for an roblox game, program made in AutoHotKey language
