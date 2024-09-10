@@ -3,4 +3,4 @@ An automatic gem farmer for an roblox game, program made in AutoHotKey language
 
 In order to make this work you need to have an 1650x1080 monitor, open and run the "Reconnect_Starter.ahk" script, open the "Anime Vanguards" roblox game and press 'Ctrl + J' in your keyboard
 
-then just wait happy 😁
+then just wait😁
