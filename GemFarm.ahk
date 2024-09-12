@@ -85,7 +85,7 @@ F7::
 
 	main:
 Loop		 {
-	Tooltip, Waiting Lobby 🕹️
+	Tooltip, Waiting Lobby 🕹️, 200,200
 	Sleep 10
 	ImageSearch, lobbyplayposx, lobbyplayposy, %lobbyplayx% , %lobbyplayy%, % lobbyplayx + 200, % lobbyplayy + 300, *%variance% %A_ScriptDir%\Images\lobbyplay.png
 
