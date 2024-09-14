@@ -7,8 +7,8 @@ then just wait 😁
 Joining an private server (That is free in this game) might enhance the performance of the macro
 
 
-If you don't want to open the AHK file to custom yourself, I recommend you to put the legendary unit "Agony" (Pain - Naruto) at the 2nd slot and an stronger unit like an mythic at the 4th slot.
-While testing this macro I used "Sosuke(Hebi)" (Sasuke - Naruto) as 1st unit and worked pretty well, but any mythic works. 
+If you don't want to open the AHK file to custom yourself, I recommend you to put the legendary unit "Agony" (Pain - Naruto) at the 2nd slot and an stronger unit like an mythic at the 1st slot.
+While testing this macro I was using "Sosuke(Hebi)" (Sasuke - Naruto) as 1st unit and worked pretty well, but any mythic works. 
 
 
 
