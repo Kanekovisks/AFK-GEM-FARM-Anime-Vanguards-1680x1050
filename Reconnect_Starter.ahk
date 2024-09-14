@@ -1,4 +1,4 @@
-﻿#SingleInstance, Force
+#SingleInstance, Force
 Menu, Tray, Icon, %A_ScriptDir%\Images\connect.ico
 
 variance = 20
@@ -18,12 +18,12 @@ Numpad2::ExitApp
 ^j::
 
 
+
 	active:
 Loop	{
 
 	if WinExist("Roblox")	{
 		WinActivate
-		Sleep 1000
 		goto, starter
 				}
 
@@ -37,12 +37,16 @@ Loop	{
 
 	starter:
 Run %A_ScriptDir%\TimerGem.ahk
-	Sleep 1000
-	SendInput {F3}
-	Sleep 10
+Sleep 200
 Run %A_ScriptDir%\GemFarm.ahk
-	Sleep 1000
+Sleep 1000
+	SendInput {F3}
+	Sleep 100
 	SendInput {F7}
+
+ToolTip, RECONNECT MODE ACTIVATED ✅, 1650, 965,4
+ToolTip, 🔄️RECONNECTS: %ticks%, 1650, 930,5
+
 
 
 
@@ -51,8 +55,7 @@ Run %A_ScriptDir%\GemFarm.ahk
 
 
 	reconnect:
-ToolTip, RECONNECT MODE ACTIVATED ✅, 1650, 965,4
-
+	ToolTip,
 Loop		{
 	Sleep 1000
 	ImageSearch Reconnectx, Reconnecty, 690, 390, 1110, 815, *%variance% %A_ScriptDir%\Images\Reconnect.png
@@ -69,7 +72,7 @@ Loop		{
 
 
 	waiting:
-Tooltip, Need to Reconnect 😞
+Tooltip, Need to Reconnect 😞,200,200
 Sleep 1000
 MouseMove, %Reconnectx%, %Reconnecty%,4
 
@@ -80,8 +83,7 @@ Loop, 4		{
 	Sleep 200
 		}
 
-Tooltip, Reconnecting 😞
-Sleep 1000
+Tooltip, Reconnecting 😞,200,200
 
 Loop, 2		{
 	MouseMove, % Reconnectx, % Recconecty, 4	
@@ -89,7 +91,10 @@ Loop, 2		{
 	MouseClick, L,%Reconnectx%, %Reconnecty%, 3
 		}
 
-ToolTip,
+ticks++
+Sleep 100
+ToolTip, 🔄️RECONNECTS: %ticks%, 1650, 930,5
+
 
 Run %A_ScriptDir%\GemFarm.ahk
 Sleep 1000
