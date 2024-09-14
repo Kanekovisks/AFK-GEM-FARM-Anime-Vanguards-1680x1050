@@ -71,7 +71,7 @@ zoomout = o
 
 ;COORDS PICKER
 {
-~numpad6::
+~l::
 loop,
 {
 MouseGetPos, xpos, ypos
@@ -85,7 +85,7 @@ f9:: reload
 f8:: exitapp
 
 
-$NumpadDot::
+~k::
 F7::
 	ToolTip, GEM FARM ACTIVATED 💎, 1650, 1000,2
 	ToolTip, 💎WINS: %wins%, 1650, 905,6
