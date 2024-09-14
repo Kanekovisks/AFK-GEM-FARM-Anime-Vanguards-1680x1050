@@ -60,7 +60,6 @@ secondy = 690
 
 upgkey = t
 cancelkey = q
-zoomout = o
 
 ;placex = 615
 ;placey = 260
