@@ -1,5 +1,9 @@
-﻿#SingleInstance, Force
+#SingleInstance, Force
 Menu, Tray, Icon, %A_ScriptDir%\Images\diamante.ico
+
+wins = 0
+
+
 
 ;POS
 {
@@ -44,13 +48,15 @@ variance2 = 130
 
 ;UNITS
 {
-painslot = 3
-painx = 955
-painy = 690
 
-sasukeslot = 4
-sasukex = 955
-sasukey = 560
+firstslot = 1
+firstx = 955
+firsty = 560
+
+secondslot = 2
+secondx = 955
+secondy = 690
+
 
 upgkey = t
 cancelkey = q
@@ -82,10 +88,11 @@ f8:: exitapp
 $NumpadDot::
 F7::
 	ToolTip, GEM FARM ACTIVATED 💎, 1650, 1000,2
-
+	ToolTip, 💎WINS: %wins%, 1650, 905,6
+	
 	main:
 Loop		 {
-	Tooltip, Waiting Lobby 🕹️, 200,200
+	Tooltip, Waiting Lobby 🕹️
 	Sleep 10
 	ImageSearch, lobbyplayposx, lobbyplayposy, %lobbyplayx% , %lobbyplayy%, % lobbyplayx + 200, % lobbyplayy + 300, *%variance% %A_ScriptDir%\Images\lobbyplay.png
 
@@ -156,15 +163,11 @@ Tooltip, Walking 🚶‍➡, 200, 200
 
 Sleep 10
 Send {w down}
-Sleep 5
 Send {d down}
-sleep 5
 Send {Shift down}
 Sleep 1500
 Send {w up}
-Sleep 5
 Send {d up}
-sleep 5
 Send {Shift up}
 Sleep 1000
 
@@ -258,6 +261,7 @@ Loop 		{
 
 
 	difficult:
+	Sleep 300
 Loop 		{
 	ToolTip, Changing difficult ☠️, 200, 200
 	Sleep 10
@@ -547,34 +551,34 @@ goto, units
 
 
 	units:
-	placepain:
+	placesecond:
 
 	Tooltip, Playing 🕹️,200,200
 
 sleep 10000
 
-Send {%painslot%}
+Send {%secondslot%}
 Sleep 1000
-MouseMove, %painx%, %painy%, 4
+MouseMove, %secondx%, %secondy%, 4
 
 Loop, 20 	{
-	Send {%painslot%}
+	Send {%secondslot%}
 	Sleep 500
-	MouseMove, %painx%,%painy%
+	MouseMove, %secondx%,%secondy%
 	sleep 200
-	MouseClick, L, %painx%, %painy%
+	MouseClick, L, %secondx%, %secondy%
 	 	}
 
 Send {%cancelkey%}
 Sleep 1000
-goto, upgradepain
+goto, upgradesecond
 
 
 
 
 
 
-	upgradepain:
+	upgradesecond:
 Loop, 40 	{
 	Sleep 2000
 	Send {%upgkey%}
@@ -589,28 +593,28 @@ sleep 5000
 
 
 
-	placesasuke:
-Send {%sasukeslot%}
+	placefirst:
+Send {%firstslot%}
 Sleep 1000
-MouseMove, % sasukex ,% sasukey
+MouseMove, % firstx ,% firsty
 
 Loop, 15 	{
-	Send {%sasukeslot%}
+	Send {%firstslot%}
 	Sleep 500
-	MouseMove, % sasukex ,% sasukey, 4
+	MouseMove, % firstx ,% firsty, 4
 	sleep 200
-	MouseClick, L, % sasukex ,% sasukey
+	MouseClick, L, % firstx ,% firsty
 	 	}
 
 Send {%cancelkey%}
 Sleep 1000
-goto, upgradesasuke
+goto, upgradefirst
 
 
 
 
 
-	upgradesasuke:
+	upgradefirst:
 Sleep 200
 Send {r}
 sleep 100
@@ -640,8 +644,10 @@ Loop		 {
 	Sleep 100
 	ImageSearch, endposx, endposy, %endx%, %endy%, % endx + 360, % endy + 280, *%variance% %A_ScriptDir%\Images\gem3.png
 	if (Errorlevel = 0) {
-		MouseMove, % centerx + 500, % centery, 4
-		Sleep 500
+		wins++
+		sleep 200
+		ToolTip, 💎WINS: %wins%, 1650, 905,6
+		MouseMove, % centerx, % centery, 4
 	goto, replay
 	}
 	
