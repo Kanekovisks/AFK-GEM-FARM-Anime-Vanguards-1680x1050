@@ -13,3 +13,7 @@ While testing this macro I was using "Sosuke(Hebi)" (Sasuke - Naruto) as 1st uni
 
 
 Forgive me for any programming/grammar errors present in the code, I'm not an experienced programmer neither an english speaker and I just made this macro as a study 🙏
+
+
+This script uses an lib called "FindText" created by feiyue for better image search
+Can be found at https://www.autohotkey.com/boards/viewtopic.php?f=6&t=17834
