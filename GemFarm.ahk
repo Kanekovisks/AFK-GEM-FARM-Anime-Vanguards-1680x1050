@@ -71,7 +71,7 @@ zoomout = o
 
 ;COORDS PICKER
 {
-~l::
+~numpad6::
 loop,
 {
 MouseGetPos, xpos, ypos
@@ -85,7 +85,7 @@ f9:: reload
 f8:: exitapp
 
 
-~k::
+$NumpadDot::
 F7::
 	ToolTip, GEM FARM ACTIVATED 💎, 1650, 1000,2
 	ToolTip, 💎WINS: %wins%, 1650, 905,6
@@ -122,9 +122,8 @@ Loop		 {
 	lobbyplay:
 Sleep 5000
 MouseMove, % lobbyplayposx, % lobbyplayposy, 4
-Sleep 500
+Sleep 250
 MouseClick, L, % lobbyplayposx, % lobbyplayposy
-Sleep 200
 goto, walk
 
 
@@ -136,32 +135,23 @@ goto, walk
 
 	walk:
 Sleep 1000
-
-Tooltip, Ajusting Camera 📷, 200,200
-
-sleep 500
-MouseMove, %centerx%, %centery%, 2
+Tooltip, Ajusting Camera 📷,200,200
 sleep 200
-MouseClickDrag, R, %centerx%, %centery%, %centerx%, % centery + 200
-sleep 500
-
-Loop, 30 	{
-	Sleep 1
+MouseMove, %centerx%, %centery%, 4
+sleep 200
+MouseClickDrag, R, %centerx%, %centery%, %centerx%, % centery + 200, 1
+Loop, 20	{
 	Send {Wheelup}
-	Sleep 1
 		}
 
-Sleep 500
+Sleep 250
 
-Loop, 10	{
-	Sleep 1
+Loop, 10 	{
 	Send {WheelDown}
-	Sleep 1
 		}
 
 Tooltip, Walking 🚶‍➡, 200, 200
 
-Sleep 10
 Send {w down}
 Send {d down}
 Send {Shift down}
@@ -187,10 +177,7 @@ Loop		{
 	ImageSearch, levelposx, levelposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\namek.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % levelposx, % levelposy, 4
-		Sleep 250
-		MouseClick, L, % levelposx, % levelposy
-	goto, act
+	goto, level2
 	}
 
 	if (Errorlevel = 1) 	{
@@ -198,10 +185,7 @@ Loop		{
 		ImageSearch, levelposx, levelposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\namek2.png
 		
 	if (Errorlevel = 0) {
-		MouseMove, % levelposx, % levelposy, 4
-		Sleep 250
-		MouseClick, L, % levelposx, % levelposy
-	goto, act
+	goto, level2
 	}
 
 	if (Errorlevel = 1) {
@@ -227,10 +211,7 @@ Loop 		{
 	ImageSearch, actposx, actposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\act1.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % actposx, % actposy, 4
-		Sleep 250
-		MouseClick, L, % actposx, % actposy
-	goto, difficult
+	goto, act2
 	}
 
 	if (Errorlevel = 1) 	{
@@ -238,10 +219,7 @@ Loop 		{
 		ImageSearch, actposx, actposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\act1_2.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % actposx, % actposy, 4
-		Sleep 250
-		MouseClick, L, % actposx, % actposy
-	goto, difficult
+	goto, act2
 	}
 
 	if (Errorlevel = 1) 	{
@@ -261,17 +239,14 @@ Loop 		{
 
 
 	difficult:
-	Sleep 300
+	Sleep 500
 Loop 		{
 	ToolTip, Changing difficult ☠️, 200, 200
 	Sleep 10
 	ImageSearch, difficultposx, difficultposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\normal.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % difficultposx, % difficultposy, 4
-		Sleep 250
-		MouseClick, L, % difficultposx, % difficultposy
-	goto, confirm
+	goto, difficult2
 	}
 
 	if (Errorlevel = 1)	 {
@@ -279,10 +254,7 @@ Loop 		{
 		ImageSearch, difficultposx, difficultposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\normal2.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % difficultposx, % difficultposy, 4
-		Sleep 250
-		MouseClick, L, % difficultposx, % difficultposy
-	goto, confirm
+	goto, difficult2
 	}
 
 	if (Errorlevel = 1) 	{
@@ -307,10 +279,7 @@ Loop 		{
 	Sleep 10
 	ImageSearch, confirmposx, confirmposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\confirm.png
 	if (Errorlevel = 0) {
-		MouseMove, % confirmposx, % confirmposy, 4
-		Sleep 250
-		MouseClick, L, % confirmposx, % confirmposy
-	goto, startlevel
+	goto, confirm2
 	}
 
 	if (Errorlevel = 1) {
@@ -318,10 +287,7 @@ Loop 		{
 		ImageSearch, confirmposx, confirmposy, %selectx% , %selecty%, % selectx2, % selecty2, *%variance% %A_ScriptDir%\Images\confirm2.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % confirmposx, % confirmposy, 4
-		Sleep 250
-		MouseClick, L, % confirmposx, % confirmposy
-	goto, startlevel
+	goto, confirm2
 	}
 
 	if (Errorlevel = 1) {
@@ -341,10 +307,7 @@ Loop, 100	 {
 	ImageSearch, startposx, startposy, % selectx , % selecty , % selectx2, % selecty2 , *%variance% %A_ScriptDir%\Images\start.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % startposx, % startposy, 4
-		Sleep 500
-		MouseClick, L, % startposx, % startposy
-	goto, loading
+	goto, startlevel2
 	}
 
 	if (Errorlevel = 1) {
@@ -352,10 +315,7 @@ Loop, 100	 {
 		ImageSearch, startposx, startposy, % selectx , % selecty , % selectx2, % selecty2 , *%variance% %A_ScriptDir%\Images\start2.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % startposx, % startposy, 4
-		Sleep 500
-		MouseClick, L, % startposx, % startposy
-	goto, loading
+	goto, startlevel2
 	}
 
 	if (Errorlevel = 1) {
@@ -363,10 +323,7 @@ Loop, 100	 {
 		ImageSearch, startposx, startposy, % selectx , % selecty , % selectx2, % selecty2 , *%variance% %A_ScriptDir%\Images\start3.png
 	
 	if (Errorlevel = 0) {
-		MouseMove, % startposx, % startposy, 4
-		Sleep 500
-		MouseClick, L, % startposx, % startposy
-	goto, loading
+	goto, startlevel2
 	}
 
 				 }
@@ -380,16 +337,54 @@ Loop, 100	 {
 
 
 
+	level2:
+MouseMove, % levelposx, % levelposy, 4
+Sleep 250
+MouseClick, L, % levelposx, % levelposy
+	goto, act
+
+
+
+	act2:
+MouseMove, % actposx, % actposy, 4
+Sleep 250
+MouseClick, L, % actposx, % actposy
+	goto, difficult
+
+
+
+	difficult2:
+MouseMove, % difficultposx, % difficultposy, 4
+Sleep 250
+MouseClick, L, % difficultposx, % difficultposy
+	goto, confirm
+
+
+
+	confirm2:
+MouseMove, % confirmposx, % confirmposy, 4
+Sleep 250
+MouseClick, L, % confirmposx, % confirmposy
+	goto, startlevel
+
+
+
+	startlevel2:
+MouseMove, % startposx, % startposy, 4
+Sleep 500
+MouseClick, L, % startposx, % startposy
+	goto, loading
+
+
+
 
 
 	loading:
 MouseMove, % centerx, % centery, 2
 Sleep 200
 Tooltip, Loading ⏳
-Sleep 5000
+Sleep 10000
 goto, spawn
-
-
 
 
 
@@ -404,13 +399,7 @@ Loop		 {
 		ImageSearch, configposx, configposy, %configx% , %configy%, % configx + 70, % configy + 50, *%variance% %A_ScriptDir%\Images\config.png
 	
 	if (Errorlevel = 0) {
-		Tooltip, Found
-		Sleep 1000
-		MouseMove, % configposx, % configposy, 4
-		Sleep 250
-		MouseClick, L, % configposx, % configposy
-		Sleep 200
-	goto, respawn
+	goto, config
 	}
 
 	if (Errorlevel = 1) {
@@ -418,13 +407,7 @@ Loop		 {
 		ImageSearch, configposx, configposy, %configx% , %configy%, % configx + 70, % configy + 50, *%variance% %A_ScriptDir%\Images\config2.png
 
 	if (Errorlevel = 0) {
-		Tooltip, Found
-		Sleep 1000
-		MouseMove, % configposx, % configposy, 4
-		Sleep 250
-		MouseClick, L, % configposx, % configposy
-		Sleep 200
-	goto, respawn
+	goto, config
 	}
 
 	if (Errorlevel = 1) {
@@ -433,6 +416,18 @@ Loop		 {
 				 }
 
 		 }
+
+
+
+
+	config:
+Tooltip, Found
+Sleep 500
+
+MouseMove, % configposx, % configposy, 4
+	Sleep 250
+MouseClick, L, % configposx, % configposy
+goto, respawn
 
 
 
@@ -488,20 +483,15 @@ Tooltip, Ajusting Camera 📷,200,200
 sleep 200
 MouseMove, %centerx%, %centery%, 4
 sleep 200
-MouseClickDrag, R, %centerx%, %centery%, %centerx%, % centery + 200
-sleep 500
-Loop, 30	{
-	Sleep 10
+MouseClickDrag, R, %centerx%, %centery%, %centerx%, % centery + 200, 1
+Loop, 20	{
 	Send {Wheelup}
-	Sleep 10
 		}
 
-Sleep 1000
+Sleep 250
 
 Loop, 10 	{
-	Sleep 10
 	Send {WheelDown}
-	Sleep 10
 		}
 goto, farm
 
@@ -660,11 +650,9 @@ Loop		 {
 
 	clicking:
 Tooltip, Clicking 🖱️,200,200
-sleep 250
 MouseMove, %centerx%, %centery%, 2
 Sleep 250
 MouseClick,L,% centerx, % centery
-Sleep 250
 goto, replay
 
 
