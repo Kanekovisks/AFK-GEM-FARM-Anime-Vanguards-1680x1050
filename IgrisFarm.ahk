@@ -20,8 +20,8 @@ thirdx = 1025
 thirdy = 580
 
 
-Towerunit1x = 150
-Towerunit1y = 750
+Towerunit1x = 170
+Towerunit1y = 735
 
 Towerunit2x = 160
 Towerunit2y = 500
@@ -30,13 +30,13 @@ Towerunit3x = 440
 Towerunit3y = 275
 
 Towerunit4x = 650
-Towerunit4y = 220
+Towerunit4y = 235
 
 Towerunit5x = 1015
-Towerunit5y = 225
+Towerunit5y = 230
 
-Towerunit6x = 1225
-Towerunit6y = 265
+Towerunit6x = 1215
+Towerunit6y = 280
 
 Towerunit7x = 1495
 Towerunit7y = 490
@@ -351,7 +351,7 @@ goto, towerunits
 	MouseMove, % firstx, % firsty - 3, 4
 	MouseClick,L, % first, % first - 3, 2
 	Sleep 20000
-Loop, 5 	{
+Loop, 10 	{
 	Sleep 4000
 	Send {%upgkey%}
 	 	}
