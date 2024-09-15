@@ -35,8 +35,8 @@ Towerunit4y = 220
 Towerunit5x = 1015
 Towerunit5y = 225
 
-Towerunit6x = 1225
-Towerunit6y = 270
+Towerunit6x = 1220
+Towerunit6y = 260
 
 Towerunit7x = 1495
 Towerunit7y = 490
