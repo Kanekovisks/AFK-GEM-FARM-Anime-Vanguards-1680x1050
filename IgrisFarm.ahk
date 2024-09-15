@@ -343,7 +343,7 @@ Loop, 25 	{
 	Sleep 2000
 	Send {%upgkey%}
 	 	}
-sleep 5000
+sleep 10000
 goto, towerunits
 
 	upgradefirstv2:
@@ -368,7 +368,7 @@ goto, final
 
 
 	tunit1:
-sleep 1000
+sleep 1500
 
 Send {%firstslot%}
 Sleep 200
@@ -391,7 +391,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit2:
-sleep 1000
+sleep 1500
 
 Send {%secondslot%}
 Sleep 200
@@ -414,7 +414,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit3:
-sleep 1000
+sleep 1500
 
 Send {%firstslot%}
 Sleep 200
@@ -437,7 +437,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit4:
-sleep 1000
+sleep 1500
 
 Send {%secondslot%}
 Sleep 200
@@ -460,7 +460,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit5:
-sleep 1000
+sleep 1500
 
 Send {%secondslot%}
 Sleep 200
@@ -483,7 +483,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit6:
-sleep 1000
+sleep 1500
 
 Send {%firstslot%}
 Sleep 200
@@ -506,7 +506,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit7:
-sleep 1000
+sleep 1500
 
 Send {%thirdslot%}
 Sleep 200
@@ -530,7 +530,7 @@ MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit8:
-sleep 1000
+sleep 1500
 
 Send {%firstslot%}
 Sleep 200
