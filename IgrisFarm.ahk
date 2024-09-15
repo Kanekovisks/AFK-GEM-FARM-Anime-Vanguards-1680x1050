@@ -560,8 +560,8 @@ goto, upgradefirstv2
 	final:
 	ToolTip, Waiting the End,200,200
 	MouseMove, % centerx + 500, % centery, 4
-Loop,	200	 {
-Sleep 2500
+Loop,	1000	 {
+Sleep 500
 Endimg:="|<>*122$53.s1zzzzzzzU1zzzzzzy03zzzzzzsD7zzzzzzkzzUS8MT01zy0A00Q07UM0M00M0C0ksk00kwS1VlVVVU8T303333U0S60C667UE0ADwAACsk0M0MMMM1k1s0lkkk3k7s3XnlkA"
 
 	if (ok:=FindText(endposx, endposy, 1019-150000, 422-150000, 1019+150000, 422+150000, 0, 0, Endimg))
@@ -572,7 +572,7 @@ Endimg:="|<>*122$53.s1zzzzzzzU1zzzzzzy03zzzzzzsD7zzzzzzkzzUS8MT01zy0A00Q07UM0M00
 		MouseMove, % centerx, % centery, 2
 	goto, replay
 	}
-Sleep 2500
+Sleep 500
 }
 
 
