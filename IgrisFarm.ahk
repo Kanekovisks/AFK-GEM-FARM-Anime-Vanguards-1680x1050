@@ -1,4 +1,4 @@
-﻿#SingleInstance, Force
+#SingleInstance, Force
 SetWorkingDir %A_ScriptDir%
 Menu, Tray, Icon, %A_ScriptDir%\Images\helmet.ico
 
@@ -13,21 +13,21 @@ thirdslot = 3
 firstx = 900
 firsty = 450
 
-secondx = 980
-secondy = 420
+secondx = 990
+secondy = 485
 
 thirdx = 1025
 thirdy = 580
 
 
-Towerunit1x = 135
+Towerunit1x = 150
 Towerunit1y = 750
 
-Towerunit2x = 140
+Towerunit2x = 160
 Towerunit2y = 500
 
-Towerunit3x = 435
-Towerunit3y = 270
+Towerunit3x = 440
+Towerunit3y = 275
 
 Towerunit4x = 650
 Towerunit4y = 220
@@ -38,7 +38,7 @@ Towerunit5y = 225
 Towerunit6x = 1225
 Towerunit6y = 270
 
-Towerunit7x = 1490
+Towerunit7x = 1495
 Towerunit7y = 490
 
 Towerunit8x = 1495
@@ -57,7 +57,7 @@ wins = 0
 }
 
 
-
+/*
 ~l::
 Loop{
 MouseGetPos, mousex,mousey
@@ -65,8 +65,7 @@ ToolTip, X: %mousex% Y: %mousey%
 sleep 50
 }
 return
-
-
+*/
 
 
 
@@ -80,7 +79,7 @@ f8:: exitapp
 ~k::
 F7::
 	ToolTip, IGROS FARM ACTIVATED, 1650, 1000,2
-	;ToolTip, WINS: %wins%, 1650, 905,6
+	ToolTip, WINS: %wins%, 1650, 905,6
 
 	main:
 spawn:
@@ -89,10 +88,10 @@ spawn:
 
 Loop {
 Configimg:="|<>*131$25.zw7zzy3zzz1zzU00zU00DU003s003w1w1y1z0z1zkQ1zw00zy00Tz00DzU07zk71zkTUTkDk7k7s003s000y000zU00zvkSzzsDzzw7zk"
-if (ok:=FindText(configposx, configposy, 25-150000, 976-150000, 25+150000, 976+150000, 0, 0, Configimg))
-{
-  goto, config
-}
+	if (ok:=FindText(configposx, configposy, 25-150000, 976-150000, 25+150000, 976+150000, 0, 0, Configimg))
+	{
+	goto, config
+	}
 }
 
 
@@ -131,10 +130,10 @@ Loop, 10 {
 Loop {
 Respawnimg:="|<>*129$240.zzzzzlzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz000zzUzzzzzzzzzzzzzw003zzzy1zzzzzzzzzzzz000zzUzzzzzzzzzzy7zs003zzzs0Tzzzzzzzzzzz000zzUzzzzzzzzzzy3zs003zzzk0Dzzzzzzzzzzz000zzUzzzzzzzzzzy3zw003zzzk0Dzzzzzzzzzzzz1zzzUzzzzzzzzzzy3zzw7zzzzUMTzzzzzzzzzzzzVzzzUzzzzzzzTzzy3zzy7zvzzUwzzzzzzzzzzzzzVzU7UzU7V1zk3sMM0Tzy7y0TzUzy47zVVVsyAA7zVz03Uz03U0TU1s000Dzy7w0DzUTy01y011kQ403zVy01Uy01U0D00s000Dzy7s07zk1y00w01UkQ401zVw01Uw01U0C00M0M0Dzy7k03zk0S00w01Uk8A00zVw3UUw3UU861UM6w2zzy7kA3zs0C0UM01UU8A00zVw7UUw7UUw63kMDy3zzy7kS3zz063kMD1k00A7UzVw00Uw00Uw63sMDy3zzy7kT3zzs63kMT1k00Q7UzVw01Uw01Uw63sMDy3zzy7kT3znw63kMD1s00Q7kzVw7zUw7zUM63kMDy3zzy7kS3zVw61UMC1s00w7kzVw7zUQ7zU0C00MDy3zzy7k03zUM600s01s20w7kzVy01UC01U0D00MDy0Tzy7s03zU0C00w01w30w7kzVy01UC01U0T00sDy0Tzy7s07zk0C01w01w71w7kzVz01kD01U0zU1sDz0Tzy7w0Dzs0S03y01y71w7kzVzk3sDk3Unzs7wTzkzzy7z0zzw1y3DzVXyDXyDkzzzzzzzzzUzzzzzzzzzzzzzzzzzzy3zzzzzzzzzzzzzzzzzzzUzzzzzzzzzzzzzzzzzzy3zzzzzzzzzzzzzzzzzzzUzzzzzzzzzzzzzzzzzzy3zzzzzzzzzzzzzzzzzzzUzzzzzzzzzzzzzzzzzzy3zzzzzzzzzzzzzzzzzzzUzzzzzzzzzzzzzzzzzzy3zzzzzzzzzzzzzzzzzzzVzzzzzzzzzzzzzzzzzzy7zzzzzzzzzzU"
 
-if (ok:=FindText(respawnposx, respawnposy, 641-150000, 403-150000, 641+150000, 403+150000, 0, 0, Respawnimg))
-{
-  goto, respawntp
-}
+	if (ok:=FindText(respawnposx, respawnposy, 641-150000, 403-150000, 641+150000, 403+150000, 0, 0, Respawnimg))
+	{
+	goto, respawntp
+	}
 }
 
 
@@ -181,22 +180,32 @@ goto, walk
 
 
 	walk:
-Sleep 1000
-Send {Space down}
-Send {w down}
-Sleep 4500
-Send {w up}
-Send {Space up}
-Send {%mount%}
 Send {Ctrl}
+Sleep 1000
+Send {w down}
+Sleep 2000
+Send {w up}
+Send {a down}
+Sleep 500
+Send {a up}
+Send {w down}
+Sleep 2500
+Send {w up}
+Sleep 200
+Send {space down}
+Send {w down}
+Sleep 500
+Send {space up}
+Send {w up}
+Send {d down}
+Sleep 600
+Send {d up}
 Send {Right down}
 Sleep 1475
 Send {Right up}
+Sleep 500
+Send {%mount%}
 Send {Ctrl}
-Sleep 100
-Send {w down}
-Sleep 175
-Send {w up}
 Sleep 500
 goto, farm
 
@@ -213,10 +222,10 @@ Loop 		{
 Loop {
 Yesimg:="|<>*111$34.rCw002Dkk000T3y1wVsDyTy31zzzw4C0w1s0k1U7U6060L0sQMTC3VUUDsQ070TVs0y0y7Vzb3sS060DVw0M1z7s3kC"
 
-if (ok:=FindText(yesposx, yesposy, 771-150000, 194-150000, 771+150000, 194+150000, 0, 0, Yesimg))
-{
-  goto, yes
-}
+	if (ok:=FindText(yesposx, yesposy, 771-150000, 194-150000, 771+150000, 194+150000, 0, 0, Yesimg))
+	{
+	goto, yes
+	}
 
 }
 
@@ -330,7 +339,7 @@ goto, placefirst
 
 
 	upgradefirst:
-Loop, 30 	{
+Loop, 25 	{
 	Sleep 2000
 	Send {%upgkey%}
 	 	}
@@ -341,9 +350,9 @@ goto, towerunits
 	Sleep 200
 	MouseMove, % firstx, % firsty - 3, 4
 	MouseClick,L, % first, % first - 3, 2
-	Sleep 200
+	Sleep 20000
 Loop, 5 	{
-	Sleep 2000
+	Sleep 4000
 	Send {%upgkey%}
 	 	}
 sleep 1000
@@ -365,7 +374,7 @@ Send {%firstslot%}
 Sleep 200
 MouseMove,% Towerunit1x,% Towerunit1y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%firstslot%}
 	MouseMove,% Towerunit1x,% Towerunit1y - 20, 2
 	Sleep 250
@@ -377,6 +386,8 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit2:
@@ -386,7 +397,7 @@ Send {%secondslot%}
 Sleep 200
 MouseMove,% Towerunit2x,% Towerunit2y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%secondslot%}
 	MouseMove,% Towerunit2x,% Towerunit2y - 20, 2
 	Sleep 250
@@ -398,6 +409,8 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit3:
@@ -407,7 +420,7 @@ Send {%firstslot%}
 Sleep 200
 MouseMove,% Towerunit3x,% Towerunit3y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%firstslot%}
 	MouseMove,% Towerunit3x,% Towerunit3y + 20, 2
 	Sleep 250
@@ -419,6 +432,8 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit4:
@@ -428,7 +443,7 @@ Send {%secondslot%}
 Sleep 200
 MouseMove,% Towerunit4x,% Towerunit4y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%secondslot%}
 	MouseMove,% Towerunit4x,% Towerunit4y + 20, 2
 	Sleep 250
@@ -440,6 +455,8 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit5:
@@ -449,7 +466,7 @@ Send {%secondslot%}
 Sleep 200
 MouseMove,% Towerunit5x,% Towerunit5y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%secondslot%}
 	MouseMove,% Towerunit5x,% Towerunit5y + 20, 2
 	Sleep 250
@@ -461,6 +478,9 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
+
 
 	tunit6:
 sleep 1000
@@ -469,7 +489,7 @@ Send {%firstslot%}
 Sleep 200
 MouseMove,% Towerunit6x,% Towerunit6y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%firstslot%}
 	MouseMove,% Towerunit6x,% Towerunit6y + 20, 2
 	Sleep 250
@@ -481,6 +501,8 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit7:
@@ -490,7 +512,7 @@ Send {%thirdslot%}
 Sleep 200
 MouseMove,% Towerunit7x,% Towerunit7y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%thirdslot%}
 	MouseMove,% Towerunit7x,% Towerunit7y - 20, 2
 	Sleep 250
@@ -503,6 +525,8 @@ Send {%upgkey%}
 Sleep 200
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 
 
 	tunit8:
@@ -512,7 +536,7 @@ Send {%firstslot%}
 Sleep 200
 MouseMove,% Towerunit8x,% Towerunit8y, 4
 
-Loop, 5 	{
+Loop, 3 	{
 	Send {%firstslot%}
 	MouseMove,% Towerunit8x,% Towerunit8y - 20, 2
 	Sleep 250
@@ -524,7 +548,11 @@ Loop, 5 	{
 
 Send {%cancelkey%}
 Sleep 500
+MouseMove, % centerx, % centery + 100, 4
+MouseClick,L, % centerx,% centery + 100, 2
 goto, upgradefirstv2
+
+
 
 
 
@@ -532,19 +560,20 @@ goto, upgradefirstv2
 	final:
 	ToolTip, Waiting the End,200,200
 	MouseMove, % centerx + 500, % centery, 4
-Loop		 {
+Loop,	200	 {
+Sleep 2500
+Endimg:="|<>*122$53.s1zzzzzzzU1zzzzzzy03zzzzzzsD7zzzzzzkzzUS8MT01zy0A00Q07UM0M00M0C0ksk00kwS1VlVVVU8T303333U0S60C667UE0ADwAACsk0M0MMMM1k1s0lkkk3k7s3XnlkA"
 
-	Sleep 100
-	ImageSearch, endposx, endposy, %endx%, %endy%, % endx + 360, % endy + 280, *%variance% %A_ScriptDir%\Images\gem3.png
-	if (Errorlevel = 0) {
+	if (ok:=FindText(endposx, endposy, 1019-150000, 422-150000, 1019+150000, 422+150000, 0, 0, Endimg))
+	{
 		wins++
 		sleep 200
-		;ToolTip, WINS: %wins%, 1650, 905,6
+		ToolTip, WINS: %wins%, 1650, 905,6
 		MouseMove, % centerx, % centery, 2
 	goto, replay
 	}
-
-		 }
+Sleep 2500
+}
 
 
 
@@ -572,13 +601,13 @@ Sleep 1000
 Loop {
 ReplayPointimg:="|<>*102$32.wzzznz1zzUzw3z0zDkzkT0yDwTW7zbzVkTtzUy3wDkTkC1kDw0003zU001zs000Ty0007zU001zsA0sTy70C7zVs7VzsS1sTy7UT7zVs7lzsS1wTw7UT3z1s7kzky1wDw7UT3zVs7lzwS1wzzbUTTzzs7zzzy1zzzzUDzzzs3zzzy1zzzzkzzzzzTzy"
 
-if (ok:=FindText(restartposx, restartposy, 840-150000, 167-150000, 840+150000, 167+150000, 0, 0, ReplayPointimg))
-{
-  goto, restartgame
-}
-else
-	goto, clicking
-}
+	if (ok:=FindText(restartposx, restartposy, 840-150000, 167-150000, 840+150000, 167+150000, 0, 0, ReplayPointimg))
+	{
+		goto, restartgame
+	}
+	else
+		goto, clicking
+	}
 
 
 
