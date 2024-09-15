@@ -63,18 +63,6 @@ variance2 = 130
 wins = 0
 }
 
-;COORDS PICKER
-{
-~l::
-loop,
-{
-MouseGetPos, xpos, ypos
-tooltip, X:%xpos% Y:%ypos%, 200, 200
-sleep 100
-}
-return
-}
-
 
 
 f9:: reload
@@ -474,7 +462,7 @@ sleep 5000
 Send {%firstslot%}
 MouseMove, % firstx, % firsty,2
 
-Loop, 15 	{
+Loop, 20 	{
 	Send {%firstslot%}
 	Sleep 250
 	MouseMove, % firstx, % firsty, 1
@@ -513,21 +501,20 @@ goto, final
 	final:
 	ToolTip, Waiting the End,200,200
 	MouseMove, % centerx + 500, % centery, 4
-Loop		 {
+Loop,	200	 {
+2500
+Endimg:="|<>*122$53.s1zzzzzzzU1zzzzzzy03zzzzzzsD7zzzzzzkzzUS8MT01zy0A00Q07UM0M00M0C0ksk00kwS1VlVVVU8T303333U0S60C667UE0ADwAACsk0M0MMMM1k1s0lkkk3k7s3XnlkA"
 
-	Sleep 100
-	ImageSearch, endposx, endposy, %endx%, %endy%, % endx + 360, % endy + 280, *%variance% %A_ScriptDir%\Images\gem3.png
-	if (Errorlevel = 0) {
+	if (ok:=FindText(endposx, endposy, 1019-150000, 422-150000, 1019+150000, 422+150000, 0, 0, Endimg))
+	{
 		wins++
 		sleep 200
-		ToolTip, WINS: %wins%, 1650, 905,6
+		;ToolTip, WINS: %wins%, 1650, 905,6
 		MouseMove, % centerx, % centery, 2
 	goto, replay
 	}
-
-		 }
-
-
+2500
+}
 
 
 
@@ -569,8 +556,8 @@ else
 	restartgame:
 Sleep 1000
 Tooltip, Restarting,200,200
-MouseMove, % restartposx + 200, % restartposy + 600, 4
-MouseClick,L,% restartposx + 200, % restartposy + 600
+MouseMove, % restartposx + 200, % restartposy + 615, 4
+MouseClick,L,% restartposx + 200, % restartposy + 615
 goto, start
 
 
