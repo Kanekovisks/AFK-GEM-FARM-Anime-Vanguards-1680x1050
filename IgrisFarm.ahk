@@ -14,7 +14,7 @@ cancelkey = q
 wins = 0
 
 
-;goto, main
+goto, main
 
 
 
